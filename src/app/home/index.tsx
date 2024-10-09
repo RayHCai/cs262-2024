@@ -17,36 +17,30 @@ export default function Home() {
     return (
         <ScrollView
             style={ styles.container }
-            contentContainerStyle={
-                {
-                    alignItems: 'center',
-                    gap: 20
-                }
-            }
+            contentContainerStyle={ {
+                alignItems: 'center',
+                gap: 20,
+            } }
             stickyHeaderIndices={ [0] }
         >
             <View style={ styles.headerContainer }>
                 <Text
-                    style={
-                        {
-                            fontWeight: 'bold',
-                            letterSpacing: 1,
-                        }
-                    }
+                    style={ {
+                        fontWeight: 'bold',
+                        letterSpacing: 1,
+                    } }
                 >
                     KnightConnect
                 </Text>
 
                 <Button
-                    onPress={ () => router.navigate('/login') }
+                    onPress={ () => router.navigate('/selectInterests') }
                     backgroundColor={ globalStyles.lightBlue }
                 >
                     <Text
-                        style={
-                            {
-                                color: globalStyles.white
-                            }
-                        }
+                        style={ {
+                            color: globalStyles.white,
+                        } }
                     >
                         Login
                     </Text>
@@ -65,41 +59,39 @@ export default function Home() {
                       ) }
                     backIcon={ (
                         <Ionicons
-                        name="options"
-                        size={ 24 }
-                        color={ globalStyles.black }
+                            name="options"
+                            size={ 24 }
+                            color={ globalStyles.black }
                         />
                       ) }
                 />
 
                 <ScrollView
                     horizontal={ true }
-                    contentContainerStyle={
-                        {
-                            display: 'flex',
-                            flexDirection: 'row',
-                            gap: 10
-                        }
-                    }
+                    contentContainerStyle={ {
+                        display: 'flex',
+                        flexDirection: 'row',
+                        gap: 10,
+                    } }
                 >
-                    {
-                        CATEGORIES.map(
-                            (c, i) => (
-                                <Button
-                                    key={ i }
-                                    onPress={ () => {} }
-                                >
-                                    <Text style={ styles.filterButtonText }>{ c }</Text>
-                                </Button>
-                            )
-                        )
-                    }
+                    { CATEGORIES.map((c, i) => (
+                        <Button key={ i } onPress={ () => {} }>
+                            <Text style={ styles.filterButtonText }>{ c }</Text>
+                        </Button>
+                    )) }
                 </ScrollView>
             </View>
 
             <View style={ styles.recommendationsContentContainer }>
-                <EventRecommendation title="Upcoming Events" horizontalScroll={ true } />
-                <EventRecommendation title="Recommended for You" eventCardType="price" horizontalScroll={ false } />
+                <EventRecommendation
+                    title="Upcoming Events"
+                    horizontalScroll={ true }
+                />
+                <EventRecommendation
+                    title="Recommended for You"
+                    eventCardType="price"
+                    horizontalScroll={ false }
+                />
             </View>
         </ScrollView>
     );
