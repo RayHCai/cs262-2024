@@ -36,14 +36,14 @@ export default function UserCalendar() {
          * @returns {Promise<void>} A promise that resolves when the events are fetched and state is updated.
          */
         (async function() {    
-            const response = await fetch(`${BACKEND_URL}/join/${user.id}/`);
+            // const response = await fetch(`${BACKEND_URL}/join/${user.id}/`);
 
-            if(!response.ok)
-                return;
+            // if(!response.ok)
+            //     return;
 
-            const json = await response.json();
+            // const json = await response.json();
 
-            updateEvents(json.data);
+            // updateEvents(json.data);
             updateLoading(false);
         })();
     }, [user]);

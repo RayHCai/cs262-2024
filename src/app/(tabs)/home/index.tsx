@@ -116,17 +116,34 @@ export default function Home() {
     useEffect(() => {
         (async function () {
             updateLoading(true);
-            const response = await fetch(`${BACKEND_URL}/event/${page}/`);
+            // const response = await fetch(`${BACKEND_URL}/event/${page}/`);
 
-            if(!response.ok) {
-                logout();
+            // if(!response.ok) {
+            //     logout();
 
-                return Alert.alert('Error');
-            }
+            //     return Alert.alert('Error');
+            // }
 
-            const json = await response.json();
+            // const json = await response.json();
 
-            updateEvents(json.data);
+            // updateEvents(json.data);
+
+            updateEvents(
+                [
+                    {
+                        id: '0',
+                        organizer: 'Calvin University',
+                        name: 'STEM Workshop',
+                        date_created: '2/10/2025',
+                        start_date: '2/10/2025',
+                        end_date: '2/11/2025',
+                        price: 'Free',
+                        location: 'Science Building',
+                        tags: []
+                    }
+                ]
+            );
+
             updateLoading(false);
         })();
     }, [params.reload]);

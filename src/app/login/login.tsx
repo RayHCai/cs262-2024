@@ -108,27 +108,40 @@ export default function Login({
         updateLoading(true);
 
         if (action === 'Login') {
-            const response = await fetch(`${BACKEND_URL}/validate/`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    email: email,
-                    password: password
-                })
-            });
+            // const response = await fetch(`${BACKEND_URL}/validate/`, {
+            //     method: 'POST',
+            //     headers: {
+            //         'Content-Type': 'application/json',
+            //     },
+            //     body: JSON.stringify({
+            //         email: email,
+            //         password: password
+            //     })
+            // });
 
-            if(!response.ok) {
-                updateLoading(false);
-                updateIncorrect(true);
+            // if(!response.ok) {
+            //     updateLoading(false);
+            //     updateIncorrect(true);
 
-                return Alert.alert('User not found. Maybe try another password');
-            }
+            //     return Alert.alert('User not found. Maybe try another password');
+            // }
 
-            const json = await response.json();
+            // const json = await response.json();
 
-            updateUser(json.data);
+            // updateUser(json.data);
+
+            updateUser(
+                {
+                    id: '',
+                    name: 'Ray F.',
+                    email: 'hjkareus@gmail.com',
+                    preferences: [],
+                    bio: 'Hello!',
+                    joined_events: [],
+                    friends: [],
+                    incoming_requests: []
+                }
+            );
             router.navigate('/home');
         }
         else {
@@ -151,6 +164,8 @@ export default function Login({
 
             router.navigate(`/selectInterests?email=${email}`);
         }
+
+
     }
 
     if(isLoading) return <Loading />;
